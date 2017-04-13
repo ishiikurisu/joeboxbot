@@ -14,11 +14,15 @@ class TestPerson < MiniTest::Test
         assert_empty @jukebox.play_nth_song 0
     end
 
-    # TODO Test playing many songs
     def test_play_many_songs
         assert_empty @jukebox.play_nth_song 0
         assert_empty @jukebox.play_nth_song 1
     end
 
     # TODO Should not play a song with index outside the scope
+    def test_try_to_play_invalid_index
+        assert_raises(IndexError) do
+            @jukebox.play_nth_song -1
+        end
+    end
 end

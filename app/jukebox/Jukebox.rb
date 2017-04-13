@@ -14,6 +14,9 @@ class Jukebox
     end
 
     def play_nth_song n
+        if (n < 0) || (n >= @songs.length)
+            raise IndexError
+        end
         `vlc #{generate_nth_song_name n}`
     end
 
