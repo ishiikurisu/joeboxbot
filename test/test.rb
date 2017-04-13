@@ -15,4 +15,10 @@ class TestPerson < MiniTest::Test
     end
 
     # TODO Test playing many songs
+    def test_play_many_songs
+        assert_empty @jukebox.play_nth_song 0
+        assert_empty @jukebox.play_nth_song 1
+    end
+
+    # TODO Should not play a song with index outside the scope
 end
