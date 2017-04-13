@@ -7,5 +7,5 @@ end
 
 desc "Unit tests"
 task :test do
-    ruby 'app/test.rb'
+    ruby 'test/test.rb'
 end
