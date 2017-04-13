@@ -14,7 +14,10 @@ class Jukebox
     end
 
     def play_nth_song n
-        cmd = "vlc \"#{@songs[n]}\""
-        `#{cmd}`
+        `vlc #{generate_nth_song_name n}`
+    end
+
+    def generate_nth_song_name n
+        "#{@where}/\"#{@songs[n]}\""
     end
 end

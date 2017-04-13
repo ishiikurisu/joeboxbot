@@ -10,8 +10,6 @@ class TestPerson < MiniTest::Test
         assert_equal 5, @jukebox.get_available_songs.length
     end
 
-    # TODO Check if song name is being correctly referenced
-
     def test_first_song
         assert_empty @jukebox.play_nth_song 0
     end
