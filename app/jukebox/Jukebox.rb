@@ -1,6 +1,7 @@
 class Jukebox
     attr_accessor :where
     attr_accessor :playlist
+    attr_accessor :songs
 
     def initialize where
         @where = where
@@ -22,13 +23,10 @@ class Jukebox
 
     def play_all_songs
         Thread.new do
-            in_loop = true
-            while in_loop
+            loop do
                 if @playlist.length > 0
-                    play_nth_song 0
+                    play_nth_song @playlist[0]
                     @playlist.shift
-                else
-                    in_loop = false
                 end
             end
         end
