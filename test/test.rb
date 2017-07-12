@@ -19,10 +19,17 @@ class TestPerson < MiniTest::Test
         assert_empty @jukebox.play_nth_song 1
     end
 
-    # TODO Should not play a song with index outside the scope
     def test_try_to_play_invalid_index
         assert_raises(IndexError) do
             @jukebox.play_nth_song -1
         end
+    end
+
+    def test_try_to_play_a_playlist
+        @jukebox = Jukebox.new 'test/testmusic'
+        @jukebox.add_to_playlist 0
+        @jukebox.play_all_songs
+        assert @jukebox.playlist
+        @jukebox.add_to_playlist 1
     end
 end

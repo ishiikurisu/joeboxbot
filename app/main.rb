@@ -3,6 +3,7 @@ require 'telegram_bot'
 api = gets.chomp
 bot = TelegramBot.new token: api
 bot.get_updates do |message|
+  # TODO Play the songs!
   puts "@#{message.from.username}: #{message.text}"
   command = message.get_command_for bot
 
