@@ -5,14 +5,10 @@ class Jukebox
 
     def initialize where
         @where = where
-        @songs = get_available_songs
-        @playlist = [ ]
-    end
-
-    def get_available_songs
-        Dir.entries(@where).keep_if do |entry|
+        @songs = Dir.entries(@where).keep_if do |entry|
             (entry != '.') && (entry != '..')
         end
+        @playlist = [ ]
     end
 
     def add_to_playlist n

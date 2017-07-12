@@ -1,9 +1,8 @@
 require 'telegram_bot'
 require './app/jukebox/Jukebox.rb'
 
-api = gets.chomp
-bot = TelegramBot.new token: api
-jukebox = Jukebox.new './test/testmusic'
+bot = TelegramBot.new token: ARGV[0]
+jukebox = Jukebox.new ARGV[1]
 jukebox.play_all_songs
 bot.get_updates do |message|
   puts "@#{message.from.username}: #{message.text}"
