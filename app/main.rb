@@ -44,10 +44,9 @@ class App
   def list
     songs = [ ]
     @jukebox.songs.each_index do |i|
-      songs << "#{i+1}. #{@jukebox.songs[i]}\n"
+      songs << "#{i+1}. #{@jukebox.songs[i]}"
     end
-    # BUG This message is not being sent
-    songs.join.to_s
+    songs.join("\n").encode('utf-8')
   end
 
   def help
@@ -68,5 +67,4 @@ if __FILE__ == $PROGRAM_NAME
   rescue Interrupt => e
     puts 'Program interrupted'
   end
-
 end
